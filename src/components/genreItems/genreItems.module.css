@@ -1,0 +1,12 @@
+.filmWrapper {
+    display: flex;
+    width: 100%;   
+    padding: 20px 0; 
+}
+.swiperSlide {
+    max-width: 300px;
+    text-align: center;
+}
+.genre {
+    width: 100%;
+}
