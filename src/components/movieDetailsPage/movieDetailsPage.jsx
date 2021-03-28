@@ -8,14 +8,14 @@ import { MovieDetail } from '../movieDetail/movieDetail';
 export const MovieDetailsPage = observer(() => {
     let { id } = useParams();
     const movieStore = useContext(MoviesContext);
-    const { filmData, fetchFilm, isLoading } = movieStore;       
+    const { filmData, fetchFilm, isLoading } = movieStore;
     useEffect(() => {
         fetchFilm(id);
     }, [])
     return (
         <div>{isLoading
             ? (<>Loading...</>)
-            : <MovieDetail movie={filmData} />}
+            : filmData && <MovieDetail movie={filmData} />}
         </div>
     )
 });

@@ -15,7 +15,7 @@ export const GenresList = observer(() => {
         <div>
             { isLoading
                 ? (<> is loading...</>)
-                : (<div className={style.wrapper}>
+                : genres && (<div className={style.wrapper}>
                     {genres.map((genre) =>
                         <div className={style.genreWrapper} key={genre} datatype={genre}>
                             <Typography variant="h5" className={style.genreName}>{genre}</Typography>

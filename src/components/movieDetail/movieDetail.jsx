@@ -11,9 +11,7 @@ export const MovieDetail = observer((props) => {
         classification
     } } = props;
     function getYear() {
-        return released_on
-            && released_on.match(/^([\d]+?)-/)
-            && released_on.match(/^([\d]+?)-/)[1];
+        return new Date(released_on).getFullYear();        
     }
     function parseCollection(names) {
         if (!Array.isArray(names)) return names;
