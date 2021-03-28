@@ -1,4 +1,4 @@
-import { makeAutoObservable, makeObservable } from "mobx";
+import { makeAutoObservable } from "mobx";
 import { httpTransport } from "../services/httpTransport";
 import { createContext } from "react"
 import { toast } from 'react-toastify';

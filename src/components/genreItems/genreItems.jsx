@@ -2,7 +2,7 @@ import React from 'react'
 import style from './genreItems.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
-import { StylesProvider, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 export const GenreItems = (props) => {

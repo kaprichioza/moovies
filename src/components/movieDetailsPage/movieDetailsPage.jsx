@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { MoviesContext } from '../../stores/movieStore'
 import { observer } from 'mobx-react-lite';
 import { MovieDetail } from '../movieDetail/movieDetail';
+import { Loader } from '../loader/loader';
 
 
 export const MovieDetailsPage = observer(() => {
@@ -11,10 +12,10 @@ export const MovieDetailsPage = observer(() => {
     const { filmData, fetchFilm, isLoading } = movieStore;
     useEffect(() => {
         fetchFilm(id);
-    }, [])
+    }, [id, fetchFilm]);
     return (
         <div>{isLoading
-            ? (<>Loading...</>)
+            ? <Loader />
             : filmData && <MovieDetail movie={filmData} />}
         </div>
     )
