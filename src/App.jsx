@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { Header } from './components/header/header.jsx';
 import { GenresList } from './components/genresList/genresList';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { MovieDetails } from './components/movieDetails/movieDetails';
+import { MovieDetailsPage } from './components/movieDetailsPage/movieDetailsPage';
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
             <GenresList />
           </Route>
           <Route path="/movies/:id">
-            <MovieDetails />
+            <MovieDetailsPage />
           </Route>
         </Switch>
       </Router>
