@@ -1,5 +1,5 @@
 .genreWrapper {
-    padding: 20px 0;
+    padding: 20px 16px;
 }
 .wrapper {
     max-width: 1440px;
@@ -7,4 +7,10 @@
     flex-direction: column;
     justify-content: center;
     margin: auto;
+}
+@media (min-width: 600px) {
+    .genreWrapper{
+        padding-left: 24px;
+        padding-right: 24px;
+    }
 }

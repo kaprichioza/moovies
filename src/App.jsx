@@ -1,43 +1,28 @@
-import { MovieStore } from './stores/movieStore';
-import React, { useEffect, useMemo } from 'react';
-import { observer } from 'mobx-react-lite';
+import { MovieStore, MoviesContext } from './stores/movieStore';
+import React, { useMemo } from 'react';
 import { Header } from './components/header/header.jsx';
 import { GenresList } from './components/genresList/genresList';
-import { GenreItems } from './components/genreItems/genreItems';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { MovieDetails } from './components/movieDetails/movieDetails';
+
 
 function App() {
-  const movieStore = useMemo(() => new MovieStore(), []);
-  const { movies, isLoading, fetch } = movieStore;
-  const moviesGenre = {};
-  const genreItems = {};
-  const filmsData = {};
-  useEffect(() => {
-    fetch()
-  }, []);
-  function parseData() {
-    const moviesContext = JSON.parse(JSON.stringify(movies));
-    moviesContext.forEach(el => {
-      genreItems[el.title] = el.genres;
-      filmsData[el.title] = el;
-    });
-
-    console.log(filmsData)
-    moviesContext.forEach(element => {
-      element.genres.forEach(element => {
-        moviesGenre[element] = element;
-      });
-    });
-  }
+  const movieStore = useMemo(() => new MovieStore(), []);  
   return (
-    <div className="App">
-      <Header></Header>
-      {isLoading ? 'loading..' : parseData()}
-      <GenresList moviesGenre={moviesGenre}
-        genreItems={genreItems}
-        filmsData={filmsData}></GenresList>
-    </div>
+    <MoviesContext.Provider value={movieStore}>
+      <Router>
+        <Header></Header>
+        <Switch>
+          <Route exact path="/">
+            <GenresList />
+          </Route>
+          <Route path="/movies/:id">
+            <MovieDetails />
+          </Route>
+        </Switch>
+      </Router>
+    </MoviesContext.Provider>
   );
 }
 
-export default observer(App);
-
+export default App;

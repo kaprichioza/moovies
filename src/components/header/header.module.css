@@ -1,3 +1,17 @@
-.toolbar {
-    height: 100px;
+.toolbar { 
+    width: 100%;
+    max-width: 1440px;
+}
+.appBar {
+    flex-direction: row !important;
+    justify-content: center;
+}
+a {
+    color: rgba(0, 0, 0, 0.8) !important;
+    text-decoration: none !important;
+}
+@media screen and (max-width: 880px) {
+    .toolbar {    
+        justify-content: center;
+    }
 }

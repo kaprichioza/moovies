@@ -3,10 +3,14 @@
     width: 100%;   
     padding: 20px 0; 
 }
+.genre {
+    width: 100%;
+}
 .swiperSlide {
     max-width: 300px;
     text-align: center;
 }
-.genre {
-    width: 100%;
+.path {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
 }
